@@ -20,10 +20,10 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: Check Style
-        run: npm run eslint
+        run: npm run eslint 
   
   tag_release:
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    if: "github.ref == 'refs/heads/main' && github.event_name == 'push' && !contains(join(github.event.commits.*.message, ' '), '#Skip')"
     needs: [simple_deployment_pipeline]
     runs-on: ubuntu-20.04
     steps:
