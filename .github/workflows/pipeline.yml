@@ -48,7 +48,7 @@ jobs:
           New version updated in https://full-pokedex.onrender.com/ by ${{ github.actor }}
           Severity: Informational
           Release date: ${{ github.event.head_commit.timestamp }}
-        embed-color: "#00FF00"
+        embed-color: "65280"
         webhook-url: ${{ secrets.DISCORD_WEBHOOK }}
 
     - name: Discord Failure Test
@@ -62,5 +62,5 @@ jobs:
           Commit URL: https://github.com/${{ github.repository }}/commit/${{ github.sha }}
           Severity: Error
           Release date: ${{ github.event.head_commit.timestamp }}
-        embed-color: "#FF0000"
+        embed-color: "16711680"
         webhook-url: ${{ secrets.DISCORD_WEBHOOK }}
