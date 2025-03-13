@@ -48,11 +48,19 @@ jobs:
           New version updated in https://full-pokedex.onrender.com/ by ${{ github.actor }}
           Severity: Informational
           Release date: ${{ github.event.head_commit.timestamp }}
+        embed-color: "#00FF00"
         webhook-url: ${{ secrets.DISCORD_WEBHOOK }}
 
     - name: Discord Failure Test
       uses: tsickert/discord-webhook@v7.0.0
       if: failure()
       with:
+        content: "❌ Build failed!"
+        embed-title: "A test on this build has failed"
+        embed-description: |
+          The version in the commmit uploaded by ${{ github.actor }} has failed...
+          Commit URL: https://github.com/${{ github.repository }}/commit/${{ github.sha }}
+          Severity: Error
+          Release date: ${{ github.event.head_commit.timestamp }}
+        embed-color: "#FF0000"
         webhook-url: ${{ secrets.DISCORD_WEBHOOK }}
-        content: "Testing failed"
