@@ -43,11 +43,8 @@ jobs:
       if: success()
       with:
         content: "✅ New build passed all tests"
-        embeds: |
-          [{
-            "title": "New build released!",
-            "description": "New version updated in https://full-pokedex.onrender.com/"
-          }]
+        embed-title: "New build released!"
+        embed-description: "New version updated in https://full-pokedex.onrender.com/" 
         webhook-url: ${{ secrets.DISCORD_WEBHOOK }}
 
     - name: Discord Failure Test
