@@ -36,6 +36,7 @@ jobs:
 
   discord_notification:
     runs-on: ubuntu-20.04
+    needs: [tag_release, simple_deployment_pipeline]
     steps:
     - name: Discord Sucess Test
       uses: tsickert/discord-webhook@v7.0.0
