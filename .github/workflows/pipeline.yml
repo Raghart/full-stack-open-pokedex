@@ -42,8 +42,13 @@ jobs:
       uses: tsickert/discord-webhook@v7.0.0
       if: success()
       with:
+        content: "✅ New build passed all tests"
+        embeds: |
+          [{
+            "title": "New build released!",
+            "description": "New version updated in https://full-pokedex.onrender.com/"
+          }]
         webhook-url: ${{ secrets.DISCORD_WEBHOOK }}
-        content: "Testing success"
 
     - name: Discord Failure Test
       uses: tsickert/discord-webhook@v7.0.0
